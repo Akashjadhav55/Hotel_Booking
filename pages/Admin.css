@@ -71,14 +71,18 @@
     left: 12%;
     width: 88%;
 }
+.divCon{
+    display: flex;
+    flex-direction: column;
+}
 
 .span1div{
     background-image: linear-gradient(to right,
     rgb(110, 116, 194),
     rgb(88, 86, 190));
-    padding: 30px 100px;
+    padding: 30px 50px;
+    margin-bottom: 20px;
     display: flex;
-    flex-direction: column;
     border-radius: 15px;
 }
 .span1div *{
@@ -90,9 +94,11 @@
     background-image: linear-gradient(to right,
     rgba(0, 216, 65, 0.863),
     rgba(0, 216, 65, 0.863));
-    padding: 30px 100px;
+    padding: 30px 50px;
+    margin-bottom: 20px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     border-radius: 15px;
 }
 .span2div *{
@@ -104,9 +110,11 @@
     background-image: linear-gradient(to right,
     rgba(235, 86, 0, 0.863),
     rgba(233, 93, 0, 0.863));
-    padding: 30px 100px;
+    padding: 30px 50px;
+    margin-bottom: 20px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     border-radius: 15px;
 }
 .span3div *{
@@ -118,9 +126,11 @@
     background-image: linear-gradient(to right,
     rgba(235, 0, 0, 0.863),
     rgba(233, 35, 0, 0.863));
-    padding: 30px 100px;
+    padding: 30px 50px;
+    margin-bottom: 20px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     border-radius: 15px;
 }
 .span4div *{
@@ -128,3 +138,7 @@
     font-weight: 600;
 }
 
+.img{
+    height: 50px;
+    margin: 20px;
+}

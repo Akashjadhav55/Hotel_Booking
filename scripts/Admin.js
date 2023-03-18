@@ -18,6 +18,7 @@ function displayStaticData(data){
     let Unbooked = data.filter((res) => res.booked == false)
     let Booked = data.filter((res) => res.booked == true)
 
+
     console.log(totalHotel,Booked.length, Unbooked.length)
 
     let hotels = document.getElementById("hotel-detail")
@@ -36,37 +37,60 @@ function displayStaticData(data){
     sedule.setAttribute("class", "span4div")
 
 
+    let div1 = document.createElement("div")
     let span1 = document.createElement("p")
     let spanone = document.createElement("p")
+    let imgone = document.createElement("img")
+    div1.setAttribute("class", "divCon")
+    imgone.src = "../assist/schedule.png"
+    imgone.setAttribute("class", "img")
     span1.innerText = totalHotel     
     spanone.innerText = "Total Rooms" 
     span1.setAttribute("class", "span1") 
     
 
+    let div2 = document.createElement("div")
     let span2 = document.createElement("p")
     let spantwo = document.createElement("p")
+    let imgtwo = document.createElement("img")
+    div2.setAttribute("class", "divCon")
+    imgtwo.src = "../assist/room.png"
+    imgtwo.setAttribute("class", "img")
     span2.innerText = Booked.length
     spantwo.innerText = "Booked Rooms" 
     span1.setAttribute("class", "span2") 
     
-
+    
+    let div3 = document.createElement("div")
     let span3 = document.createElement("p")
     let spanthree = document.createElement("p")
+    let imgthree = document.createElement("img")
+    div3.setAttribute("class", "divCon")
+    imgthree.src = "../assist/bookmark.png"
+    imgthree.setAttribute("class", "img")
     span3.innerText = Unbooked.length 
     spanthree.innerText = "Unbooked Rooms"
     span1.setAttribute("class", "span3") 
 
-    
+    let div4 = document.createElement("div")
     let span4 = document.createElement("p")
     let spanfour = document.createElement("p")
-    span4.innerText = 4 
-    spanfour.innerText = "Schedule Room"
+    let imgfour = document.createElement("img")
+    div4.setAttribute("class", "divCon")
+    imgfour.src = "../assist/rupee.png"
+    imgfour.setAttribute("class", "img")
+    span4.innerText = 300 
+    spanfour.innerText = "Minimume Cost"
     span1.setAttribute("class", "span4") 
 
-    totalDiv.append(span1,spanone)
-    bookedDiv.append(span2,spantwo)
-    unbookedDiv.append(span3,spanthree)
-    sedule.append(span4,spanfour)
+    div1.append(span1,spanone)
+    totalDiv.append(div1,imgone)
+    div2.append(span2,spantwo)
+    bookedDiv.append(div2, imgtwo)
+    div3.append(span3,spanthree)
+    unbookedDiv.append(div3,imgthree)
+    div4.append(span4,spanfour)
+    sedule.append(div4,imgfour)
     hotelInfo.append(totalDiv,bookedDiv,unbookedDiv,sedule)
     hotels.append(hotelInfo)
 
