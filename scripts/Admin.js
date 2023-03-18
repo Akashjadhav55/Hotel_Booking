@@ -2,8 +2,8 @@ let hotels = document.getElementById("hotel-detail")
 
 let SideBar = document.getElementById("sidebar")
 
-let dashboard = document.createElement("p")
-dashboard.innerText = "Dashboard"
+let dashboard = document.createElement("button")
+dashboard.innerHTML = "Dashboard"
 dashboard.setAttribute("class","dashboard")
 dashboard.onclick = () => {
     window.location.href = "../pages/Admin.html"
@@ -17,6 +17,19 @@ Addhotels.onclick = () => {
 }
 
 SideBar.append(dashboard,Addhotels)
+
+
+
+function datafetch() {
+    fetch('https://hotel-booking-api-odw9.onrender.com/hotels')
+    .then(res => res.json())
+    .then((res) => {
+        displayStaticData(res)
+        displayData(res)
+    })
+    .catch((err) => console.log(err))
+}
+
 
 function displayStaticData(data){
     var totalHotel = data.length
@@ -102,9 +115,120 @@ function displayStaticData(data){
 
 }
 
-fetch('https://hotel-booking-api-odw9.onrender.com/hotels')
-.then(res => res.json())
-.then((res) => {
-    displayStaticData(res)
+function Remove(id){
+    fetch(`https://hotel-booking-api-odw9.onrender.com/hotels/${id}`, {
+      method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(() => {datafetch()})
+
+}
+
+function EditDetail(id){
+    fetch(`https://hotel-booking-api-odw9.onrender.com/hotels/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({})
+    })
+    .then(response => response.json())
+}
+
+function displayData(res){
+
+    res.map((data) => {
+
+        let container = document.getElementById("table")
+        let table = document.createElement("table")
+        table.setAttribute("class","table")
+        let thead = document.createElement("thead")
+        let tbody = document.createElement("tbody")
+        tbody.setAttribute("class", "tbody")
+        let tr1 = document.createElement("tr")
+        let tr2 = document.createElement("tr")
+
+
+        let th1 = document.createElement("th")
+        th1.innerText = "Id"
+
+        let th2 = document.createElement("th")
+        th2.innerText = "Category"
+
+        let th3 = document.createElement("th")
+        th3.innerText = "Type Of Room"
+
+        let th4 = document.createElement("th")
+        th4.innerText = "Bed Type"
+
+        let th5 = document.createElement("th")
+        th5.innerText = "No Of Persons"
+
+        let th6 = document.createElement("th")
+        th6.innerText = "Capacity"
+
+        let th7 = document.createElement("th")
+        th7.innerText = "Cost"
+
+        let th8 = document.createElement("th")
+        th8.innerText = "Status"
+
+        let th9 = document.createElement("th")
+        th9.innerText = ""
+
+        let th10 = document.createElement("th")
+        th10.innerText = ""
+
+
+        let td1 = document.createElement("td")
+        td1.innerText = data.id
+
+        let td2 = document.createElement("td")
+        td2.innerText = data.category
+
+        let td3 = document.createElement("td")
+        td3.innerText = data.type_of_room
+
+        let td4 = document.createElement("td")
+        td4.innerText = data.bed_type
+    
+        let td5 = document.createElement("td")
+        td5.innerText = data.no_of_persons
+        
+        let td6 = document.createElement("td")
+        td6.innerText = data.capacity
+
+        let td7 = document.createElement("td")
+        td7.innerText = data.cost
+
+        let td8 = document.createElement("td")
+        td8.innerText = data.booked
+
+        let td9 = document.createElement("td")
+        td9.innerText = "Delete"
+        td9.onclick = () => {
+            Remove(data.id)
+        }
+        td9.style.backgroundColor = "red"
+
+        let td10 = document.createElement("td")
+        td10.innerText = "Edit"
+        td10.onclick = () => {
+            EditDetail(data.id)
+        }
+        td10.style.backgroundColor = "green"
+
+        tr1.append(th1,th2,th3,th4,th5,th6,th7,th8,th9,th10)
+        tr2.append(td1,td2,td3,td4,td5,td6,td7,td8,td9,td10)
+        thead.append(tr1)
+        tbody.append(tr2)
+        table.append(thead,tbody)
+        container.append(table)
 })
-.catch((err) => console.log(err))
+
+}
+
+
+datafetch()
+
+
