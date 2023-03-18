@@ -5,10 +5,16 @@ let SideBar = document.getElementById("sidebar")
 let dashboard = document.createElement("p")
 dashboard.innerText = "Dashboard"
 dashboard.setAttribute("class","dashboard")
+dashboard.onclick = () => {
+    window.location.href = "../pages/Admin.html"
+}
 
 let Addhotels = document.createElement("p")
 Addhotels.innerText = "Add Hotels"
 Addhotels.setAttribute("class", "addhotels")
+Addhotels.onclick = () => {
+    window.location.href = "../pages/AddHotel.html"
+}
 
 SideBar.append(dashboard,Addhotels)
 

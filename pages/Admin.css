@@ -27,6 +27,7 @@
             rgb(206, 144, 58),
             rgb(255, 85, 0));
     transition: all 0.5s ease-in-out;
+    cursor: pointer;
 }
 .navbar p:hover{
     background-image: linear-gradient(to right,
@@ -52,6 +53,7 @@
     border-radius: 10px;
     padding: 20px;
     font-size: 20px;
+    cursor: pointer;
 }
 .addhotels{
     margin: 10px 0;
@@ -59,6 +61,7 @@
     border-radius: 10px;
     padding: 20px;
     font-size: 20px;
+    cursor: pointer;
 }
 
 
@@ -80,13 +83,15 @@
     background-image: linear-gradient(to right,
     rgb(110, 116, 194),
     rgb(88, 86, 190));
-    padding: 30px 50px;
+    padding: 20px 40px;
     margin-bottom: 20px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     border-radius: 15px;
 }
 .span1div *{
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -94,7 +99,7 @@
     background-image: linear-gradient(to right,
     rgba(0, 216, 65, 0.863),
     rgba(0, 216, 65, 0.863));
-    padding: 30px 50px;
+    padding: 20px 40px;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -102,7 +107,7 @@
     border-radius: 15px;
 }
 .span2div *{
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -110,7 +115,7 @@
     background-image: linear-gradient(to right,
     rgba(235, 86, 0, 0.863),
     rgba(233, 93, 0, 0.863));
-    padding: 30px 50px;
+    padding: 20px 40px;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -118,7 +123,7 @@
     border-radius: 15px;
 }
 .span3div *{
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -126,7 +131,7 @@
     background-image: linear-gradient(to right,
     rgba(235, 0, 0, 0.863),
     rgba(233, 35, 0, 0.863));
-    padding: 30px 50px;
+    padding: 20px 40px;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -134,11 +139,11 @@
     border-radius: 15px;
 }
 .span4div *{
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
 }
 
 .img{
     height: 50px;
-    margin: 20px;
+    margin: 10px;
 }

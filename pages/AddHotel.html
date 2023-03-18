@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./AddHotel.css">
+    <title>Hotel Booking</title>
+</head>
+<body>
+    <div>
+    <div class="navbar">
+        <p id="dashboard">Dashboard</p>
+    </div>
+    <div class="container">
+        
+        <form  class="form">
+            <h2>ADD HOTELS DETAIL</h2>
+            <div class="form-control" >
+                <label for="category">Category</label>
+                <select class="type" id="category">
+                    <option value=""></option>
+                    <option value="Family">Family</option>
+                    <option value="Deluxe">Deluxe</option>
+                    <option value="Suite">Suite</option>
+                </select>            
+            </div>
+            <div class="form-control">
+                <label for="Image Url">Image URL</label>
+                <input type="text" id="image" placeholder="Enter Image URL">
+            </div>
+            <div class="form-control">
+                <label for="TypeOfRoom">Type Of Room</label>
+                <select class="type" id="typeOfRoom">
+                    <option value=""></option>
+                    <option value="Ac">AC</option>
+                    <option value="non Ac">Non Ac</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label for="BedType">Bed Type</label>
+                <select class="type" id="BedType">
+                    <option value=""></option>
+                    <option value="single">Single</option>
+                    <option value="double">Double</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label for="adults">No Of Adults</label>
+                <input type="text" id="NoOfAdults" placeholder="Enter No Of Adults">
+
+            </div>
+            <div class="form-control">
+                <label for="capacity">Max Capacity</label>
+                <input type="text" id="capacity" placeholder="Enter MaxCapacity">
+
+            </div>
+            <div class="form-control">
+                <label for="cost">Cost Per Night</label>
+                <input type="text" id="cost" placeholder="Enter Cost">
+    
+            </div>
+            <button id="submit">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+<script src="../scripts/AddHotel.js"></script>
+</html>
