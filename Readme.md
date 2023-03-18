@@ -1,3 +1,6 @@
+##eve.holt@reqres.in
+##cityslicka
+
 fetch(`http://localhost:3000/hotels/${id}`, {
       method: 'PATCH',
       headers: {
@@ -26,7 +29,7 @@ fetch(`http://localhost:3000/hotels/`, {
     .then(renderToys)
  
 
- 
+
 fetch('http://localhost:3000/hotels')
   .then(resp => resp.json())
   .then(renderToys)
