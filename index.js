@@ -29,11 +29,17 @@ login.addEventListener("click", () => {
 });
 
 
-// LoginButton.addEventListener("click",() => {
+LoginButton.addEventListener("click",() => {
 
-//     if()
-//     toastr["success"]("My name is Inigo Montoya. You killed my father. Prepare to die!")
-// })
+    if(LoginEmail.value == "eve.holt@reqres.in" && LoginPassword.value == "cityslicka"){
+        let data = {
+            email : LoginEmail.value,
+            password : LoginPassword.value
+        }
+
+    }
+    toastr["success"]("My name is Inigo Montoya. You killed my father. Prepare to die!")
+})
 
 
 
@@ -51,14 +57,41 @@ SingupButton.addEventListener("click", () => {
             email : SingupEmail.value,
             password : SingupPassword.value,
         }
-       fetch("",{
+        
+        console.log(data)
+       fetch("https://hotel-booking-api-odw9.onrender.com/users",{
         method : "POST",
-        body : JSON.stringify({data}),
+        body : JSON.stringify(data),
         headers : {
             "Content-type" : "application/json"
         }
-
        })
+       .then((res) => res.json())
+       .then(() => {
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr["success"]("Sign Up Successfully")
+            
+       } )
+       .finally( () => {
+            slider.classList.remove("moveslider");
+            formSection.classList.remove("form-section-move");
+       } )
     }
     
 })
