@@ -33,3 +33,98 @@
     rgb(179, 124, 48),
     rgb(207, 69, 0));
 }
+
+.dash{
+    display: flex;
+}
+
+#sidebar{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 12%;
+    position: fixed;
+}
+.dashboard{
+    margin: 10px 0;
+    border: 1px solid #f1e5e5;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 20px;
+}
+.addhotels{
+    margin: 10px 0;
+    border: 1px solid #ebe1e1;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 20px;
+}
+
+
+.hotelInfo{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 30px 0;
+    position: fixed;
+    left: 12%;
+    width: 88%;
+}
+
+.span1div{
+    background-image: linear-gradient(to right,
+    rgb(110, 116, 194),
+    rgb(88, 86, 190));
+    padding: 30px 100px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+.span1div *{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.span2div{
+    background-image: linear-gradient(to right,
+    rgba(0, 216, 65, 0.863),
+    rgba(0, 216, 65, 0.863));
+    padding: 30px 100px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+.span2div *{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.span3div{
+    background-image: linear-gradient(to right,
+    rgba(235, 86, 0, 0.863),
+    rgba(233, 93, 0, 0.863));
+    padding: 30px 100px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+.span3div *{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.span4div{
+    background-image: linear-gradient(to right,
+    rgba(235, 0, 0, 0.863),
+    rgba(233, 35, 0, 0.863));
+    padding: 30px 100px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+.span4div *{
+    font-size: 30px;
+    font-weight: 600;
+}
+
