@@ -233,7 +233,7 @@ function displayData(res){
                 console.log(info)
                 value = false
                 window.localStorage.setItem('value', JSON.stringify(false));
-                EditDetail(info, data.id)
+        EditDetail(info, data.id)        
                 console.log(value)
             }
             input10.style.backgroundColor = "green"
