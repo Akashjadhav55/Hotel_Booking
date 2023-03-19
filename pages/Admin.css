@@ -15,7 +15,7 @@
     justify-content: space-between;
     align-items: center;
     padding:20px 30px;
-    position: fixed;
+    position: sticky;
     overflow: hidden;
 }
 .navbar span{
@@ -47,7 +47,7 @@
     flex-direction: column;
     height: 100%;
     width: 12%;
-    position: fixed;
+    position: sticky;
     top: 80px;
 }
 .dashboard{
@@ -75,10 +75,9 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 30px 0;
-    position: fixed;
-    left: 12%;
-    top : 80px;
-    width: 88%;
+    position: sticky;
+    width: 110%;
+    /* border: 1px solid; */
     overflow: hidden;
 }
 .divCon{
@@ -156,18 +155,28 @@
 }
 
 #table{
-    position: relative;
+    position: sticky;
     left: 12%;
-    top: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 20px;
-    overflow: hidden;
+    padding: 30px;
+    flex-wrap: wrap;
+  
 }
 .table, th, td{ 
     border: 1px solid;
     border-collapse: collapse;
     padding: 10px;
+
+}
+.tableContactBody2{
+    padding: 30px;
+    margin: 30px;
+}
+.tdatag{
+    padding: 80px 0px;
+}
+.inputEdite{
+    padding: 30px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

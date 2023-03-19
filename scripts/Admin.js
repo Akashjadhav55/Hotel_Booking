@@ -34,8 +34,8 @@ function datafetch() {
 function displayStaticData(data){
     var totalHotel = data.length
  
-    let Unbooked = data.filter((res) => res.booked == false)
-    let Booked = data.filter((res) => res.booked == true)
+    let Unbooked = data.filter((res) => res.booked === "false")
+    let Booked = data.filter((res) => res.booked === "true")
 
 
     console.log(totalHotel,Booked.length, Unbooked.length)
@@ -98,7 +98,7 @@ function displayStaticData(data){
     div4.setAttribute("class", "divCon")
     imgfour.src = "../assist/rupee.png"
     imgfour.setAttribute("class", "img")
-    span4.innerText = 300 
+    span4.innerText = 3000 
     spanfour.innerText = "Minimume Cost"
     span1.setAttribute("class", "span4") 
 
@@ -120,66 +120,143 @@ function Remove(id){
       method: 'DELETE'
     })
     .then(response => response.json())
-    .then(() => {datafetch()})
+    .then(() => location.reload())
 
 }
 
-function EditDetail(id){
-    fetch(`https://hotel-booking-api-odw9.onrender.com/hotels/${id}`, {
+function EditDetail(data,id){
+    console.log(id)
+    let url = `https://hotel-booking-api-odw9.onrender.com/hotels/${id}`
+    fetch(url, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({})
+      body: JSON.stringify(data)
     })
     .then(response => response.json())
+    .then(() => console.log("success"))
+    .then(() => location.reload())
+    .catch((err) => console.log(err))
 }
 
 function displayData(res){
 
+    let value = JSON.parse(localStorage.getItem("value"))
+    console.log(value)
+
+
+    if(value){
+        res.map((data) => {
+            let container = document.getElementById("tableContactBody2")
+            let tr2 = document.createElement("tr")
+            tr2.setAttribute("class", "tdatag")
+            
+            let td1 = document.createElement("td")
+            td1.setAttribute("class", "tdatag")
+            let td2 = document.createElement("td")
+            td2.setAttribute("class", "tdatag")
+            let td3 = document.createElement("td")
+            td3.setAttribute("class", "tdatag")
+            let td4 = document.createElement("td")
+            td4.setAttribute("class", "tdatag")
+            let td5 = document.createElement("td")
+            td5.setAttribute("class", "tdatag")
+            let td6 = document.createElement("td")
+            td6.setAttribute("class", "tdatag")
+            let td7 = document.createElement("td")
+            td7.setAttribute("class", "tdatag")
+            let td8 = document.createElement("td")
+            td8.setAttribute("class", "tdatag")
+            let td9 = document.createElement("td")
+            td9.setAttribute("class", "tdatag")
+            let td10 = document.createElement("td")
+            td10.setAttribute("class", "tdatag")
+          
+            let input1 = document.createElement("span")
+            input1.innerText = data.id
+            input1.setAttribute("class", "inputEdite")
+    
+            let input2 = document.createElement("input")
+            input2.value = data.category
+            input2.setAttribute("class", "inputEdite")
+            
+            let input3 = document.createElement("input")
+            input3.value = data.type_of_room
+            input3.setAttribute("class", "inputEdite")
+    
+            let input4 = document.createElement("input")
+            input4.value = data.bed_type
+            input4.setAttribute("class", "inputEdite")
+        
+            let input5 = document.createElement("input")
+            input5.value = data.no_of_persons
+            input5.setAttribute("class", "inputEdite")
+
+            let input6 = document.createElement("input")
+            input6.value = data.capacity
+            input6.setAttribute("class", "inputEdite")
+
+            let input7 = document.createElement("input")
+            input7.value = data.cost
+            input7.setAttribute("class", "inputEdite")
+
+            let input8 = document.createElement("input")
+            input8.value = data.booked
+            input8.setAttribute("class", "inputEdite")
+    
+
+            let input9 = document.createElement("span")
+            input9.value = ""
+
+            // let stringValue1 = Boolean('true');
+            // let stringValue2 = Boolean('');
+            // console.log(stringValue1); // true
+            // console.log(stringValue2); // false
+
+
+            let input10 = document.createElement("td")
+            input10.innerText = "Submit"
+            input10.onclick = () => {
+
+                let info = {
+                    category : input2.value,
+                    image_url : data.image_url,
+                    type_of_room : input3.value,
+                    bed_type : input4.value,
+                    no_of_persons : input5.value,
+                    capacity : input6.value,
+                    cost : input7.value,
+                    booked : input8.value,
+                    id : data.id
+                }
+                console.log(info)
+                value = false
+                window.localStorage.setItem('value', JSON.stringify(false));
+                EditDetail(info, data.id)
+                console.log(value)
+            }
+            input10.style.backgroundColor = "green"
+            input10.style.cursor = "pointer"
+
+            td1.append(input1)
+            td2.append(input2)
+            td3.append(input3)
+            td4.append(input4)
+            td5.append(input5)
+            td6.append(input6)
+            td7.append(input7)
+            td8.append(input8)
+            td9.append(input9)
+            td10.append(input10)
+            tr2.append(td1,td2,td3,td4,td5,td6,td7,td8,td9,td10)
+            container.append(tr2)
+        })
+    }else{
     res.map((data) => {
-
-        let container = document.getElementById("table")
-        let table = document.createElement("table")
-        table.setAttribute("class","table")
-        let thead = document.createElement("thead")
-        let tbody = document.createElement("tbody")
-        tbody.setAttribute("class", "tbody")
-        let tr1 = document.createElement("tr")
+        let container = document.getElementById("tableContactBody")
         let tr2 = document.createElement("tr")
-
-
-        let th1 = document.createElement("th")
-        th1.innerText = "Id"
-
-        let th2 = document.createElement("th")
-        th2.innerText = "Category"
-
-        let th3 = document.createElement("th")
-        th3.innerText = "Type Of Room"
-
-        let th4 = document.createElement("th")
-        th4.innerText = "Bed Type"
-
-        let th5 = document.createElement("th")
-        th5.innerText = "No Of Persons"
-
-        let th6 = document.createElement("th")
-        th6.innerText = "Capacity"
-
-        let th7 = document.createElement("th")
-        th7.innerText = "Cost"
-
-        let th8 = document.createElement("th")
-        th8.innerText = "Status"
-
-        let th9 = document.createElement("th")
-        th9.innerText = ""
-
-        let th10 = document.createElement("th")
-        th10.innerText = ""
-
-
+        
         let td1 = document.createElement("td")
         td1.innerText = data.id
 
@@ -207,26 +284,28 @@ function displayData(res){
         let td9 = document.createElement("td")
         td9.innerText = "Delete"
         td9.onclick = () => {
-            Remove(data.id)
+            // Remove(data.id)
         }
         td9.style.backgroundColor = "red"
 
         let td10 = document.createElement("td")
         td10.innerText = "Edit"
         td10.onclick = () => {
-            EditDetail(data.id)
+            // EditDetail(data.id)
+            value = true
+            window.localStorage.setItem('value', JSON.stringify(true));
+            location.reload()
+            console.log(value)
         }
         td10.style.backgroundColor = "green"
 
-        tr1.append(th1,th2,th3,th4,th5,th6,th7,th8,th9,th10)
-        tr2.append(td1,td2,td3,td4,td5,td6,td7,td8,td9,td10)
-        thead.append(tr1)
-        tbody.append(tr2)
-        table.append(thead,tbody)
-        container.append(table)
-})
+        
+       
 
-}
+        tr2.append(td1,td2,td3,td4,td5,td6,td7,td8,td9,td10)
+        container.append(tr2)
+})
+}}
 
 
 datafetch()

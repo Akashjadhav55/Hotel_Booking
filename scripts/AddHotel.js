@@ -32,7 +32,7 @@ Submit.addEventListener("click", () => {
         no_of_persons : NoOfAdults.value,
         capacity : capacity.value,
         cost : cost.value,
-        booked : false
+        booked : "false"
     }
     let url = "https://hotel-booking-api-odw9.onrender.com/hotels"
     fetch(url, {
