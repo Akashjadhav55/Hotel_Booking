@@ -1,25 +1,43 @@
 import { getData } from "../api.js"
 
-let product = await getData('https://hotel-booking-api-odw9.onrender.com/hotels')
+let product = await getData('https://hotel-booking-api-cndl.onrender.com/hotels')
+localStorage.setItem("product",JSON.stringify(product))
 
-//let product = async () => {
-    // try {
-    //  await getData('https://hotel-booking-api-odw9.onrender.com/hotels')
-    //    console.log(user_data)
-    //    return user_data;
+let FilterByCategory = document.getElementById("sortbycategory")
+    FilterByCategory.addEventListener("click",() =>{
+        let products = JSON.parse(localStorage.getItem("product"));
+        console.log(products,FilterByCategory.value)
+        let data = products.filter((el) => {
+            if(FilterByCategory.value == "Family"){
+                return el.category == "Family" 
+            }
+            else if(FilterByCategory.value == "ApartmentHotel"){
+                return el.category == "ApartmentHotel"
+            }
+            else if(FilterByCategory.value == "ResortHotel"){
+                return el.category == "ResortHotel"
+            }
+            else{
+                return el.category == "Motel"
+            }
+        })
+            console.log(data)
+        })
 
-    // } catch (error) {
-    //     console.log(error)
-    // }
-// }
 
-let SortByName = document.getElementById("sortbyname").value
-let SortByPrice = document.getElementById("sortbyprice").value
-let SortByBooked = document.getElementById("sortbybooked").value
+// let SortByPrice = document.getElementById("sortbyprice")
+// SortByPrice.addEventListener("click",() =>{
+//     let products = JSON.parse(localStorage.getItem("product"));
+//     console.log(products,SortByPrice.value)
+//     let data = products.sort((a , b) => {
+//         if(SortByName.value == "ASC"){
+//             return b.name < a.name
+//         }
+//         console.log(data)
+//     })
+// })
 
-console.log(SortByPrice)
-
-// console.log(product,"heloo") 
+let SortByBooked = document.getElementById("sortbybooked")
 
 // function EditDetail(data,id){
 //     console.log(id)
@@ -88,10 +106,10 @@ console.log(SortByPrice)
         button1.innerText = "Booked Now"
         button1.style.backgroundColor = "#fff"
         button1.setAttribute("class" , "buttonBooked")
-        console.log(res.booked)
+        // console.log(res.booked)
 
         if(res.booked === "true"){
-            console.log("hello", res.booked)
+            // console.log("hello", res.booked)
             button1.disabled = true
             button1.style.backgroundColor = "#fff"
         }else{
@@ -107,7 +125,7 @@ console.log(SortByPrice)
                     booked : "true"
                 }
                 disabled = true
-                console.log("hello")
+                // console.log("hello")
                 EditDetail(data, data.id)  
             }
         }
@@ -137,3 +155,4 @@ console.log(SortByPrice)
 
 
 // displayData()
+

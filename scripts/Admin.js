@@ -21,7 +21,7 @@ SideBar.append(dashboard,Addhotels)
 
 
 function datafetch() {
-    fetch('https://hotel-booking-api-odw9.onrender.com/hotels')
+    fetch('https://hotel-booking-api-cndl.onrender.com/hotels')
     .then(res => res.json())
     .then((res) => {
         displayStaticData(res)
@@ -38,7 +38,7 @@ function displayStaticData(data){
     let Booked = data.filter((res) => res.booked === "true")
 
 
-    console.log(totalHotel,Booked.length, Unbooked.length)
+    // console.log(totalHotel,Booked.length, Unbooked.length)
 
     let hotels = document.getElementById("hotel-detail")
     
@@ -116,7 +116,7 @@ function displayStaticData(data){
 }
 
 function Remove(id){
-    fetch(`https://hotel-booking-api-odw9.onrender.com/hotels/${id}`, {
+    fetch(`https://hotel-booking-api-cndl.onrender.com/hotels/${id}`, {
       method: 'DELETE'
     })
     .then(response => response.json())
@@ -126,7 +126,7 @@ function Remove(id){
 
 function EditDetail(data,id){
     console.log(id)
-    let url = `https://hotel-booking-api-odw9.onrender.com/hotels/${id}`
+    let url = `https://hotel-booking-api-cndl.onrender.com/hotels/${id}`
     fetch(url, {
       method: 'PATCH',
       headers: {

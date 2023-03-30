@@ -34,7 +34,7 @@ Submit.addEventListener("click", () => {
         cost : cost.value,
         booked : "false"
     }
-    let url = "https://hotel-booking-api-odw9.onrender.com/hotels"
+    let url = "https://hotel-booking-api-cndl.onrender.com/hotels"
     fetch(url, {
     method: 'POST',
     headers: {
