@@ -1,45 +1,46 @@
+import { getData } from "../api.js"
 
-function datafetch() {
-    fetch('https://hotel-booking-api-odw9.onrender.com/hotels')
-    .then(res => res.json())
-    .then((res) => {
-        displayData(res)
-    })
-    .catch((err) => console.log(err))
-}
+let product = await getData('https://hotel-booking-api-odw9.onrender.com/hotels')
 
-/*
-   "category": "Family",
-    "image_url": "https://www.acaciahotelsmanila.com/wp-content/uploads/2020/09/room-deluxe_70df34c103b85ce7b2b5ff918ab8cf72.jpg",
-    "type_of_room": "AC",
-    "bed_type": "Double",
-    "no_of_persons": "2",
-    "capacity": "3",
-    "cost": "3000",
-    "booked": true,
-    "id": 1
-*/
+//let product = async () => {
+    // try {
+    //  await getData('https://hotel-booking-api-odw9.onrender.com/hotels')
+    //    console.log(user_data)
+    //    return user_data;
 
-function EditDetail(data,id){
-    console.log(id)
-    let url = `https://hotel-booking-api-odw9.onrender.com/hotels/${id}`
-    fetch(url, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(() => console.log("success"))
-    .then(() => location.reload())
-    .catch((err) => console.log(err))
-}
+    // } catch (error) {
+    //     console.log(error)
+    // }
+// }
+
+console.log(product)
+
+// console.log(product,"heloo") 
+
+// function EditDetail(data,id){
+//     console.log(id)
+//     let url = `https://hotel-booking-api-odw9.onrender.com/hotels/${id}`
+//     fetch(url, {
+//       method: 'PATCH',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(data)
+//     })
+//     .then(response => response.json())
+//     .then(() => console.log("success"))
+//     .then(() => location.reload())
+//     .catch((err) => console.log(   err))
+// }
 
 
-function displayData(data){
-    data.map((res) => {
+// function displayData(data){
+    product.map((res) => {
+        
         let Inbox =  document.getElementById("box")
+        let ImageDiv =  document.createElement("div")
+        ImageDiv.setAttribute("class", "imagediv")
+
         let image = document.createElement("img")
         image.src = res.image_url
         image.setAttribute("class", "imagefech")
@@ -113,58 +114,13 @@ function displayData(data){
         p4.append(label4,span4)
         p5.append(label5,span5)
         div.append(p1,p2,p3,p4,p5,button1)
-        innerBox.append(image,div)
+        ImageDiv.append(image)
+        innerBox.append(ImageDiv,div)
         Inbox.append(innerBox)
 
-    //     let category = document.getElementById("category")
-    //     let adult = document.getElementById("adult")
-    //     let capacity = document.getElementById("capacity")
-    //     let bedType = document.getElementById("bedType")
-    //     let price = document.getElementById("price")
-    //     let bookedButton = document.getElementById("booked")
-
-    //     let p1 = document.createElement("span")
-    //     p1.innerText = res.category
-
-    //     let p2 = document.createElement("span")
-    //     p2.innerText = res.no_of_persons
-
-    //     let p3 = document.createElement("span")
-    //     p3.innerText = res.capacity
-
-    //     let p4 = document.createElement("span")
-    //     p4.innerText = res.bed_type
-
-    //     let p5 = document.createElement("span")
-    //     p5.innerText = res.cost
-
-    //     if(res.booked == true){
-    //         bookedButton.disabled = true
-    //     }else{
-    //     bookedButton.onclick = () => {
-    //         let data = {
-    //             category : res.category,
-    //             image_url : res.image_url,
-    //             type_of_room : res.type_of_room,
-    //             bed_type : res.bed_type,
-    //             no_of_persons : res.no_of_persons,
-    //             capacity : res.capacity,
-    //             cost : res.cost,
-    //             booked : "true"
-    //         }
-    //         disabled = true
-    //         EditDetail(data, data.id)  
-    //     }
-    // }
-
-    // category.append(p1)
-    // adult.append(p2)
-    // capacity.append(p3)
-    // bedType.append(p4)
-    // price.append(p5)
 
     })
-}
+// }
 
 
 
@@ -176,5 +132,4 @@ function displayData(data){
 
 
 
-
-datafetch()
+// displayData()

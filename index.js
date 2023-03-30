@@ -68,12 +68,13 @@ LoginButton.addEventListener("click", () => {
       email: LoginEmail.value,
       password: LoginPassword.value,
     };
+    console.log(data)
     let url = `https://hotel-booking-api-odw9.onrender.com/users?email=${LoginEmail}&password=${LoginPassword}`;
     fetch(url)
       .then((res) => res.json())
       .then((res) => console.log(res.token))
       .then(() => {
-        toastr["success"]("Login Successfully");
+        // toastr["success"]("Login Successfully");
       })
       .then(() => {
         window.location.href = "./pages/Hotels.html"
