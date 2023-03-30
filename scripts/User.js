@@ -13,7 +13,11 @@ let product = await getData('https://hotel-booking-api-odw9.onrender.com/hotels'
     // }
 // }
 
-console.log(product)
+let SortByName = document.getElementById("sortbyname").value
+let SortByPrice = document.getElementById("sortbyprice").value
+let SortByBooked = document.getElementById("sortbybooked").value
+
+console.log(SortByPrice)
 
 // console.log(product,"heloo") 
 

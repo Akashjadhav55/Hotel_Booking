@@ -13,7 +13,35 @@
     <div id="flex">
         <div id="navbar">
             <p>Hotel Wala</p>            
-            <i class="fa fa-user-circle-o" ></i>
+            <a href="#"><i class="fa fa-user-circle-o" ></i></a>
+        </div>
+        <div>
+            <div>
+                <label for="Asc">Sort By :</label>
+                <select name="sort" id="sortbyname">
+                    <option value=""></option>
+                    <option value="ASC">Asc</option>
+                    <option value="DSC">Dsc</option>
+                </select>
+            </div>
+            <div>
+                <label for="Asc">Sort By Price :</label>
+                <select name="sortbyprice" id="sortbyprice">
+                    <option value=""></option>
+                    <option value="LessThan500"> < 500 </option>
+                    <option value="Between500To2000">500 to 2000</option>
+                    <option value="Between2000To4000">2000 to 4000</option>
+                </select>
+            </div>
+            <div>
+                <label for="Asc">Sort By Booked :</label>
+                <select name="sortbybooked" id="sortbybooked">
+                    <option value=""></option>
+                    <option value="booked">Booked</option>
+                    <option value="unbooked">Unbooked</option>
+                </select>
+            </div>
+            
         </div>
         <div id="box">
 

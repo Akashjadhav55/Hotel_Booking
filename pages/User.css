@@ -26,8 +26,8 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-variant: small-caps;
 }
-#navbar > i{
-    font-size: 32px;
+#navbar > a{
+    font-size: 28px;
 }
 #box{
     display: grid;
