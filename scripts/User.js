@@ -1,28 +1,9 @@
 import { getData } from "../api.js"
 
-let product = await getData('https://hotel-booking-api-cndl.onrender.com/hotels')
+var product = await getData('https://hotel-booking-api-cndl.onrender.com/hotels')
 localStorage.setItem("product",JSON.stringify(product))
 
-let FilterByCategory = document.getElementById("sortbycategory")
-    FilterByCategory.addEventListener("click",() =>{
-        let products = JSON.parse(localStorage.getItem("product"));
-        console.log(products,FilterByCategory.value)
-        let data = products.filter((el) => {
-            if(FilterByCategory.value == "Family"){
-                return el.category == "Family" 
-            }
-            else if(FilterByCategory.value == "ApartmentHotel"){
-                return el.category == "ApartmentHotel"
-            }
-            else if(FilterByCategory.value == "ResortHotel"){
-                return el.category == "ResortHotel"
-            }
-            else{
-                return el.category == "Motel"
-            }
-        })
-            console.log(data)
-        })
+
 
 
 // let SortByPrice = document.getElementById("sortbyprice")
@@ -56,10 +37,10 @@ let SortByBooked = document.getElementById("sortbybooked")
 // }
 
 
-// function displayData(data){
-    product.map((res) => {
-        
-        let Inbox =  document.getElementById("box")
+function displayData(product){
+    var Inbox =  document.getElementById("box")
+    product.forEach((res) => {        
+        document.querySelector('#box').innerHTML = '';
         let ImageDiv =  document.createElement("div")
         ImageDiv.setAttribute("class", "imagediv")
 
@@ -142,17 +123,48 @@ let SortByBooked = document.getElementById("sortbybooked")
 
 
     })
-// }
+}
 
 
 
 
 
+function filterFamily(data){
+    var newData = data.filter((el) => {
+        if(el.category == "Family"){
+            console.log(el)
+            return true
+        }
+        else{
+            return false
+        }
+    })
+    return newData
+}
 
 
 
-
-
-
-// displayData()
-
+document.getElementById("sortbycategory").addEventListener("change",() =>{
+        let FilterByCategory = document.getElementById("sortbycategory")        
+            if(FilterByCategory.value == "Default"){
+                displayData(product)
+            }
+            else if(FilterByCategory.value == "Family"){
+                var data = filterFamily(product)
+                displayData(data)
+            }
+            else if(FilterByCategory.value == "ApartmentHotel"){
+                var data = filterApartment(product)
+                displayData(data)
+            }
+            else if(FilterByCategory.value == "ResortHotel"){
+                var data = filterResort(product)
+                displayData(data)
+            }
+            else if(FilterByCategory.value == "Motel"){
+                var data = filterMotel(product)
+                displayData(data)
+            }
+        })
+ 
+        displayData(product)
